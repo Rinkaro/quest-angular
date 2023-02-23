@@ -10,7 +10,6 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent {
 
-  //connected: Utilisateur;
   connectedDTO: AuthDTO = new AuthDTO();
 
   constructor(private authService: AuthService){
@@ -24,7 +23,6 @@ export class AuthComponent {
   seconnecter(): void {
 
     this.authService.login(this.connectedDTO);
-
   }
 
 }

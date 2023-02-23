@@ -8,12 +8,18 @@ import { AuthDTO, Personne, Utilisateur } from '../model';
 })
 export class AuthService {
 
-  connected: Utilisateur;
+  connected: Utilisateur = new Utilisateur();
   utilisateurs:  Array<Utilisateur> = new Array<Utilisateur>();
   role: Array<string>;
+  logged: boolean;
 
   constructor(private http: HttpClient, private router: Router) {
-    //this.load();
+        
+    if(this.connected.identifiant) {
+      this.logged=true;
+    }
+    else this.logged=false;
+
   }
 
 
@@ -22,10 +28,16 @@ export class AuthService {
     this.http.post<Utilisateur>("http://localhost:8888/utilisateur/auth", dto).subscribe(resp => {
       this.connected = resp;
       console.log(this.connected.nom);
+      this.logged = true;
       this.router.navigate(['/accueil'+this.connected.roles[0].toLowerCase()]);
     })
   }
 
+  logout():void {
+    this.connected = new Utilisateur();
+    this.logged=false;
+    this.router.navigate(['']);
+  }
   //private load(): void {
   //  this.http.get<Array<Utilisateur>>("http://localhost:8888/utilisateur").subscribe(resp => {
   //    this.utilisateurs = resp;
