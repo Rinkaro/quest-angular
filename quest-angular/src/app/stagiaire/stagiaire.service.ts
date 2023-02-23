@@ -16,6 +16,7 @@ export class StagiaireService {
     this.civilites.set("M", "Monsieur");
     this.civilites.set("MME", "Madame");
     this.civilites.set("NB", "Non Binaire");
+    
   }
   
   findAllCivilite(): Map<string, string> {
