@@ -10,11 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { FiliereComponent } from './filiere/filiere.component';
 import { HttpClientModule }from '@angular/common/http';
 import { OrdinateurComponent } from './ordinateur/ordinateur.component';
-import { AuthComponent } from './auth/auth.component'
+import { AuthComponent } from './auth/auth.component';
 import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire.component';
 import { FormateurComponent } from './formateur/formateur.component';
 import { MatiereComponent } from './matiere/matiere.component';
-import { AccueilFormateurComponent } from './accueil-formateur/accueil-formateur.component'
+import { AccueilFormateurComponent } from './accueil-formateur/accueil-formateur.component';
 
 
 @NgModule({

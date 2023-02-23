@@ -1,67 +1,43 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Stagiaire } from '../model';
+import { AuthService } from '../auth/auth.service';
+import { Matiere, Stagiaire, Utilisateur } from '../model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AcceuilStagiaireHttpService {
-  stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
-  civilites: Map<string, string> = new Map<string,string>();
+  matieres: Array<Matiere> = new Array<Matiere>;
+  currentUtilisateur: Utilisateur;
+  currentStagiaire: Stagiaire;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private auth: AuthService) {
     this.load();
-    this.loadCivilites();
+    /* this.loadMatieres(); */
   }
 
-  findAllCivilite(): Map<string, string> {
-    return this.civilites;
+  findAllMatiere(): Array<Matiere> {
+    return this.matieres
   }
 
-  findAll(): Array<Stagiaire> {
-    return this.stagiaires;
+  findByIdUti(id: number): Observable<Utilisateur> {
+    return this.http.get<Utilisateur>("http://localhost:8888/utilisateur/" + id);
   }
 
-  findById(id: number): Observable<Stagiaire> {
+  findByIdSta(id: number): Observable<Stagiaire> {
     return this.http.get<Stagiaire>("http://localhost:8888/stagiaire/" + id);
   }
 
-  create(stagiaire: Stagiaire): void {
-    this.http.post<Stagiaire>("http://localhost:8888/stagiaire", stagiaire).subscribe(resp => {
-      this.load();
-    });
-  }
-
-  update(stagiaire: Stagiaire): void {
-    this.http.put<Stagiaire>("http://localhost:8888/stagiaire/" + stagiaire.id, stagiaire).subscribe(resp => {
-      this.load();
-    });
-  }
-
-  remove(id: number): void {
-    this.http.delete<void>("http://localhost:8888/stagiaire/" + id).subscribe(resp => {
-      this.load();
-    });
-  }
-
   private load(): void {
-    this.http.get<Array<Stagiaire>>("http://localhost:8888/stagiaire").subscribe(resp => {
-      this.stagiaires = resp;
+      this.findByIdUti(this.auth.connected.id).subscribe(resp => {
+        this.currentUtilisateur=resp;
+    });
+    
+      this.findByIdSta(this.auth.connected.id).subscribe(resp => {
+      this.currentStagiaire=resp;
     });
   }
-
-  private loadCivilites(): void {
-    this.http.get<Array<string>>("http://localhost:8888/civilites").subscribe(resp => {
-      resp.forEach(civ => {
-        this.civilites.set(civ, civ);
-      });
-    });
-  }
-
-
-
   
 
 }
-

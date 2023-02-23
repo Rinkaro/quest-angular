@@ -20,6 +20,7 @@ export class Stagiaire extends Personne {
     dtNaissance: string;
     niveauEtude: string;
     ordinateur: Ordinateur;
+    filiere: Filiere;
 
     constructor(id?:number, version?: number , civilite?: string, nom?: string, prenom?: string, email? :string, dtNaissance?: string, niveauEtude?: string) {
         super(id, version, civilite, nom, prenom, email);
@@ -76,13 +77,15 @@ export class Matiere {
     libelle: string;
     quest: number;
     formateur: Formateur;
+    filiere: Filiere;
 
-    constructor(id?:number, version?: number , libelle?: string, quest?: number, formateur?: Formateur) {
+    constructor(id?:number, version?: number , libelle?: string, quest?: number, formateur?: Formateur, filiere?: Filiere) {
         this.id = id;
         this.version = version;
         this.libelle = libelle;
         this.quest = quest;
         this.formateur = formateur;
+        this.filiere = filiere;
     }
 }
 
@@ -97,6 +100,7 @@ export class AuthDTO {
 }
 
 export class Utilisateur {
+    id: number;
     identifiant: string;
     motDePasse: string;
     nom: string;
@@ -104,10 +108,11 @@ export class Utilisateur {
     disabled: boolean;
     roles: Array<string>;
 
-    constructor(identifiant: string, motDePasse: string, nom: string,
-        prenom: string,
-        disabled: boolean,
-        roles: Array<string>) {
+    constructor(id?: number,identifiant?: string, motDePasse?: string, nom?: string,
+        prenom?: string,
+        disabled?: boolean,
+        roles?: Array<string>) {
+            this.id=id;
             this.identifiant=identifiant;
             this.motDePasse=motDePasse;
             this.nom=nom;
