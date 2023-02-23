@@ -18,7 +18,7 @@
         <a class="nav-link" *ngIf="!isConnected()" [routerLink]="['/auth']" >Se connecter</a>
     </li>
     <li class="nav-item">
-        <button type="button" class="btn btn-outline-danger" *ngIf="isConnected()" (click)="" >Se déconnecter</button>
+        <button type="button" class="btn btn-outline-danger" *ngIf="isConnected()" (click)="unConnect()" >Se déconnecter</button>
     </li>
 </ul>
 
