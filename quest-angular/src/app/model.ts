@@ -95,3 +95,25 @@ export class AuthDTO {
         this.password = password;
     }
 }
+
+export class Utilisateur {
+    identifiant: string;
+    motDePasse: string;
+    nom: string;
+    prenom: string;
+    disabled: boolean;
+    roles: Array<string>;
+
+    constructor(identifiant: string, motDePasse: string, nom: string,
+        prenom: string,
+        disabled: boolean,
+        roles: Array<string>) {
+            this.identifiant=identifiant;
+            this.motDePasse=motDePasse;
+            this.nom=nom;
+            this.prenom=prenom;
+            this.disabled=disabled;
+            this.roles=roles;
+        }
+
+}
