@@ -21,7 +21,7 @@ import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire
     StagiaireComponent,
     FiliereComponent,
     OrdinateurComponent,
-    AuthComponent
+    AuthComponent,
     AccueilStagiaireComponent
   ],
   imports: [
