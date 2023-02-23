@@ -59,5 +59,9 @@ export class AcceuilStagiaireHttpService {
     });
   }
 
+
+
+  
+
 }
 
