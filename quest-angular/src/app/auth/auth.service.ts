@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthDTO, Personne, Utilisateur } from '../model';
 
 @Injectable({
@@ -8,24 +9,26 @@ import { AuthDTO, Personne, Utilisateur } from '../model';
 export class AuthService {
 
   connected: Utilisateur;
-  connectedDTO: AuthDTO;
   utilisateurs:  Array<Utilisateur> = new Array<Utilisateur>();
+  role: Array<string>;
 
-  constructor(private http: HttpClient) {
-    this.load();
+  constructor(private http: HttpClient, private router: Router) {
+    //this.load();
   }
 
 
-  seconnecter(dto: AuthDTO):void {
+  login(dto: AuthDTO):void {
+    console.log(dto);
     this.http.post<Utilisateur>("http://localhost:8888/utilisateur/auth", dto).subscribe(resp => {
       this.connected = resp;
       console.log(this.connected.nom);
+      this.router.navigate(['/accueil'+this.connected.roles[0].toLowerCase()]);
     })
   }
 
-  private load(): void {
-    this.http.get<Array<Utilisateur>>("http://localhost:8888/utilisateur").subscribe(resp => {
-      this.utilisateurs = resp;
-    });
-  }
+  //private load(): void {
+  //  this.http.get<Array<Utilisateur>>("http://localhost:8888/utilisateur").subscribe(resp => {
+  //    this.utilisateurs = resp;
+  //  });
+  //}
 }

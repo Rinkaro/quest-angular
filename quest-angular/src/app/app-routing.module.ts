@@ -15,11 +15,11 @@ const routes: Routes = [
   {path: "stagiaire", component: StagiaireComponent},
   {path: "filiere", component: FiliereComponent},
   {path: "ordinateur", component: OrdinateurComponent},
-  {path: "accueilStagiaire", component: AccueilStagiaireComponent},
+  {path: "accueilstagiaire", component: AccueilStagiaireComponent},
   {path: "auth", component: AuthComponent},
   {path: "matiere", component: MatiereComponent},
   {path: "formateur", component: FormateurComponent},
-  {path: "accueilFormateur", component: AccueilFormateurComponent}
+  {path: "accueilformateur", component: AccueilFormateurComponent}
 
 ];
 
