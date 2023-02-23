@@ -11,6 +11,7 @@ import { FiliereComponent } from './filiere/filiere.component';
 import { HttpClientModule }from '@angular/common/http';
 import { OrdinateurComponent } from './ordinateur/ordinateur.component';
 import { AuthComponent } from './auth/auth.component'
+import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AuthComponent } from './auth/auth.component'
     FiliereComponent,
     OrdinateurComponent,
     AuthComponent
+    AccueilStagiaireComponent
   ],
   imports: [
     BrowserModule,

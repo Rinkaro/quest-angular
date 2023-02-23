@@ -1,0 +1,35 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des stagiaires</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Version</th>
+                    <th>Civilité</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Date de naissance</th>
+                    <th>Niveau d'étude  </th>
+                    <th>Ordinateur</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let stag of list()">
+                    <td>{{stag.id}}</td>
+                    <td>{{stag.version}}</td>
+                    <td>{{stag.civilite}}</td>
+                    <td>{{stag.nom}}</td>
+                    <td>{{stag.prenom }}</td>
+                    <td>{{stag.email}}</td>
+                    <td>{{stag.dtNaissance | date:"dd/MM/yyyy"}}</td>
+                    <td>{{stag.niveauEtude}}</td>
+                    <td>{{stag.ordinateur?.id}} - {{stag.ordinateur?.marque}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
