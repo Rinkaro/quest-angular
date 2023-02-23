@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire.component';
 import { AuthComponent } from './auth/auth.component';
 import { FiliereComponent } from './filiere/filiere.component';
+import { FormateurComponent } from './formateur/formateur.component';
 import { HomeComponent } from './home/home.component';
+import { MatiereComponent } from './matiere/matiere.component';
 import { OrdinateurComponent } from './ordinateur/ordinateur.component';
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 
@@ -13,7 +15,9 @@ const routes: Routes = [
   {path: "filiere", component: FiliereComponent},
   {path: "ordinateur", component: OrdinateurComponent},
   {path: "accueilStagiaire", component: AccueilStagiaireComponent},
-  {path: "auth", component: AuthComponent}
+  {path: "auth", component: AuthComponent},
+  {path: "matiere", component: MatiereComponent},
+  {path: "formateur", component: FormateurComponent}
 ];
 
 @NgModule({

@@ -58,3 +58,30 @@ export class Ordinateur {
         this.ram = ram;
     }
 }
+
+export class Formateur extends Personne {
+    externe: boolean;
+    experience: number;
+
+    constructor(id?:number, version?: number , civilite?: string, nom?: string, prenom?: string, email? :string,externe?: boolean,experience?: number) {
+        super(id, version, civilite, nom, prenom, email);
+        this.externe = externe;
+        this.experience= experience;
+    }
+}
+
+export class Matiere {
+    id: number;
+    version: number;
+    libelle: string;
+    quest: number;
+    formateur: Formateur;
+
+    constructor(id?:number, version?: number , libelle?: string, quest?: number, formateur?: Formateur) {
+        this.id = id;
+        this.version = version;
+        this.libelle = libelle;
+        this.quest = quest;
+        this.formateur = formateur;
+    }
+}

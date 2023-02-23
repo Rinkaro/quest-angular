@@ -11,7 +11,10 @@ import { FiliereComponent } from './filiere/filiere.component';
 import { HttpClientModule }from '@angular/common/http';
 import { OrdinateurComponent } from './ordinateur/ordinateur.component';
 import { AuthComponent } from './auth/auth.component'
-import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire.component'
+import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire.component';
+import { FormateurComponent } from './formateur/formateur.component';
+import { MatiereComponent } from './matiere/matiere.component'
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire
     FiliereComponent,
     OrdinateurComponent,
     AuthComponent,
-    AccueilStagiaireComponent
+    AccueilStagiaireComponent,
+    MatiereComponent,
+    FormateurComponent
   ],
   imports: [
     BrowserModule,
