@@ -13,7 +13,8 @@ import { OrdinateurComponent } from './ordinateur/ordinateur.component';
 import { AuthComponent } from './auth/auth.component'
 import { AccueilStagiaireComponent } from './accueil-stagiaire/accueil-stagiaire.component';
 import { FormateurComponent } from './formateur/formateur.component';
-import { MatiereComponent } from './matiere/matiere.component'
+import { MatiereComponent } from './matiere/matiere.component';
+import { AccueilFormateurComponent } from './accueil-formateur/accueil-formateur.component'
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MatiereComponent } from './matiere/matiere.component'
     AuthComponent,
     AccueilStagiaireComponent,
     MatiereComponent,
-    FormateurComponent
+    FormateurComponent,
+    AccueilFormateurComponent
   ],
   imports: [
     BrowserModule,
